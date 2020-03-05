@@ -8,3 +8,7 @@
  */
 
 rootProject.name = 'n-toy-nduck'
+include 'nduck-ui'
+include 'nduck-core'
+include 'nduck-web'
+
