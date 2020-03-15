@@ -1,12 +1,42 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import { AppContainer } from 'react-hot-loader';
+import { LocaleProvider } from 'antd';
+import koKR from 'antd/lib/locale-provider/ko_KR';
+import enUS from 'antd/lib/locale-provider/en_US';
+
+import { i18nClient } from './i18n';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const antResources = {
+    ko: koKR,
+    'ko-KR': koKR,
+    en: enUS,
+    'en-US': enUS,
+};
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
+const root = document.createElement('div');
+root.id = 'root';
+document.body.appendChild(root);
+
+const render = (Component) => {
+    const rootElement = document.getElementById('root');
+    ReactDom.render(
+        <AppContainer>
+            <LocaleProvider locale={antResources[i18nClient.language]}>
+                <Component />
+            </LocaleProvider>
+        </AppContainer>,
+        rootElement,
+    );
+};
+
+render(App);
+if (module.hot) {
+    module.hot.accept('./App', () => {
+        render(App);
+    });
+}
+
 serviceWorker.unregister();
