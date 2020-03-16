@@ -22,7 +22,7 @@ document.body.appendChild(root);
 
 const render = (Component) => {
     const rootElement = document.getElementById('root');
-    ReactDom.render(
+    ReactDOM.render(
         <AppContainer>
             <LocaleProvider locale={antResources[i18nClient.language]}>
                 <Component />
