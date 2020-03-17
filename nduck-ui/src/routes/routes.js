@@ -6,14 +6,14 @@ const routes = [
         path: '/Login',
         component: Login,
         isMenu: true,
-        icon: 'pie-chart',
+        icon: 'MenuUnfoldOutlined',
         title: 'Login',
     },
     {
         path: '/Dashboard',
         component: Dashboard,
         isMenu: true,
-        icon: 'desktop',
+        icon: 'DesktopOutlined',
         title: 'Dashboard',
     },
 ];

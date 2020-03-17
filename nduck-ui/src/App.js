@@ -3,6 +3,9 @@ import { Layout } from 'antd';
 import { Helmet } from 'react-helmet';
 import { Provider } from 'react-redux';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
+import { routes as mainRoutes } from './routes';
+
+import { Container } from './components/commons';
 
 class App extends Component {
     renderRoute = route => <Route key={route.path} exact strict path={route.path} component={route.component} />
@@ -17,7 +20,7 @@ class App extends Component {
 
     render() {
         return (
-            <Layout className="cublet-app-container">
+            <Layout className="app-container" style={{ height: '100%' }}>
                 <Helmet>
                     <meta charSet="utf-8" />
                     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -32,14 +35,10 @@ class App extends Component {
                 </Helmet>
                 <BrowserRouter>
                     <Switch>
-                        <Route
-                            path="/"
-                            exact
-                            // render={() => <Redirect to="/dashboard" />}
-                            render={()=>(<h3>Please select any post</h3>)}
-                        />
-                        <Container routes={routes}>
-                            {this.renderRoutes(routes)}
+                        <Container routes={mainRoutes}>
+                            <React.Suspense fallback={<div>loading...</div>}>
+                                {this.renderRoutes(mainRoutes)}
+                            </React.Suspense>
                         </Container>
                     </Switch>
                 </BrowserRouter>

@@ -9,19 +9,19 @@ module.exports = {
                 include: path.resolve(__dirname, 'src'),
                 options: {
                     presets: [
-                        ['@babel/preset-env', {modules: false}],
+                        ['@babel/preset-env', { modules: false }],
                         '@babel/preset-react',
                     ],
                     plugins: [
                         '@babel/plugin-transform-runtime',
                         '@babel/plugin-syntax-dynamic-import',
-                        ['@babel/plugin-proposal-decorators', {legacy: true}],
+                        ['@babel/plugin-proposal-decorators', { legacy: true }],
                         '@babel/plugin-syntax-async-generators',
-                        ['@babel/plugin-proposal-class-properties', {loose: false}],
+                        ['@babel/plugin-proposal-class-properties', { loose: false }],
                         '@babel/plugin-proposal-object-rest-spread',
                         'react-hot-loader/babel',
                         'dynamic-import-webpack',
-                        ['import', {libraryName: 'antd', style: true}],
+                        ['import', { libraryName: 'antd', style: true }],
                     ],
                 },
                 exclude: /node_modules/,
