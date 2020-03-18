@@ -24,6 +24,21 @@ subprojects {
     repositories {
         mavenCentral()
     }
+    
+    task initSourceFolders {
+		sourceSets*.java.srcDirs*.each {
+			if( !it.exists() ) {
+				it.mkdirs()
+			}
+		}
+
+		sourceSets*.resources.srcDirs*.each {
+			if( !it.exists() ) {
+				it.mkdirs()
+			}
+		}
+	}
+
 
     dependencies {
         compile('org.springframework.boot:spring-boot-starter-data-jpa')
@@ -32,5 +47,17 @@ subprojects {
         runtime('com.h2database:h2')
         compileOnly('org.projectlombok:lombok')
         testCompile('org.springframework.boot:spring-boot-starter-test')
+    }
+}
+
+project(':nduck-ui') {
+    dependencies {
+        compile project(':nduck-core')
+    }
+}
+
+project(':nduck-web') {
+    dependencies {
+        compile project(':nduck-core')
     }
 }
