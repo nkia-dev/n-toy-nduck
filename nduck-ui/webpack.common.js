@@ -1,30 +1,17 @@
-const path = require('path');
+const path = require('path')
 
 module.exports = {
     module: {
         rules: [
             {
                 test: /\.(js|jsx)$/,
-                loader: 'babel-loader?cacheDirectory',
+                loader: 'babel-loader',
                 include: path.resolve(__dirname, 'src'),
-                options: {
-                    presets: [
-                        ['@babel/preset-env', { modules: false }],
-                        '@babel/preset-react',
-                    ],
-                    plugins: [
-                        '@babel/plugin-transform-runtime',
-                        '@babel/plugin-syntax-dynamic-import',
-                        ['@babel/plugin-proposal-decorators', { legacy: true }],
-                        '@babel/plugin-syntax-async-generators',
-                        ['@babel/plugin-proposal-class-properties', { loose: false }],
-                        '@babel/plugin-proposal-object-rest-spread',
-                        'react-hot-loader/babel',
-                        'dynamic-import-webpack',
-                        ['import', { libraryName: 'antd', style: true }],
-                    ],
-                },
                 exclude: /node_modules/,
+                options: {
+                    cacheCompression: false,
+                    cacheDirectory: true,
+                },
             },
             {
                 test: /\.(css|less)$/,
@@ -60,4 +47,4 @@ module.exports = {
         fs: 'empty',
         tls: 'empty',
     },
-};
+}

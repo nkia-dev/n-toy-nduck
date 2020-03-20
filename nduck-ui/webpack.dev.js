@@ -1,18 +1,17 @@
-const webpack = require('webpack');
-const merge = require('webpack-merge');
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const baseConfig = require('./webpack.common.js');
+const webpack = require('webpack')
+const merge = require('webpack-merge')
+const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const baseConfig = require('./webpack.common.js')
 
-const devPort = 8080;
-const host = 'localhost';
+const devPort = 8080
+const host = 'localhost'
 
 module.exports = merge(baseConfig, {
     mode: 'development',
-    devtool: 'inline-source-map',
+    devtool: 'cheap-module-source-map',
     entry: {
         bundle: [
-            '@babel/polyfill',
             'react-hot-loader/patch',
             `webpack-dev-server/client?http://${host}:${devPort}`,
             'webpack/hot/only-dev-server',
@@ -53,4 +52,4 @@ module.exports = merge(baseConfig, {
             title: 'React Design Editor',
         }),
     ],
-});
+})

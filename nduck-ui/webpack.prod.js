@@ -1,11 +1,11 @@
-const webpack = require('webpack');
-const path = require('path');
-const merge = require('webpack-merge');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const TerserPlugin = require('terser-webpack-plugin');
-const WorkboxPlugin = require('workbox-webpack-plugin');
+const webpack = require('webpack')
+const path = require('path')
+const merge = require('webpack-merge')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const TerserPlugin = require('terser-webpack-plugin')
+const WorkboxPlugin = require('workbox-webpack-plugin')
 
-const baseConfig = require('./webpack.common.js');
+const baseConfig = require('./webpack.common.js')
 
 const plugins = [
     // 로더들에게 옵션을 넣어주는 플러그인
@@ -21,17 +21,13 @@ const plugins = [
         swSrc: './src/sw.js',
         swDest: 'sw.js',
     }),
-];
+]
 module.exports = merge(baseConfig, {
     mode: 'production',
+    devtool: 'source-map',
     entry: {
-        vendor: [
-            'react',
-            'react-dom',
-            'lodash',
-            'antd',
-        ],
-        app: ['@babel/polyfill', path.resolve(__dirname, 'src/index.js')],
+        vendor: ['react', 'react-dom', 'lodash', 'antd'],
+        app: [path.resolve(__dirname, 'src/index.js')],
     },
     output: {
         // entry에 존재하는 app.js, vendor.js로 뽑혀 나온다.
@@ -61,4 +57,4 @@ module.exports = merge(baseConfig, {
         ],
     },
     plugins,
-});
+})
