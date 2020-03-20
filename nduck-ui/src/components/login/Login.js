@@ -3,7 +3,7 @@ import React from 'react';
 const Login = props => {
     return (
         <div>
-            123
+            login
         </div>
     );
 };

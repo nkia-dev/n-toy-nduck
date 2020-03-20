@@ -3,7 +3,7 @@ import React from 'react';
 const Dashboard = props => {
     return (
         <div>
-            123
+            defaultMain
         </div>
     );
 };
