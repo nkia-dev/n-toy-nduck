@@ -8,5 +8,14 @@
     "common": {
     },
     "action": {
+    },
+    "title": {
+        "main": {
+            "dashboard": "메인",
+            "explain": "엔덕이란?",
+            "nrule": "엔덕규칙"
+        },
+        "sub": {
+        }
     }
 }
