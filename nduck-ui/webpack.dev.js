@@ -1,33 +1,39 @@
 const webpack = require('webpack')
 const merge = require('webpack-merge')
-const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const ModuleNotFoundPlugin = require('react-dev-utils/ModuleNotFoundPlugin')
+const WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeModulesPlugin')
+
 const baseConfig = require('./webpack.common.js')
+const paths = require('./config/paths')
 
 const devPort = 8080
 const host = 'localhost'
+const mode = 'development'
 
-module.exports = merge(baseConfig, {
-    mode: 'development',
+module.exports = merge(baseConfig(mode), {
+    mode,
     devtool: 'cheap-module-source-map',
     entry: {
         bundle: [
-            'react-hot-loader/patch',
-            `webpack-dev-server/client?http://${host}:${devPort}`,
-            'webpack/hot/only-dev-server',
-            path.resolve(__dirname, 'src/index.js'),
+            // 'react-hot-loader/patch',
+            // `webpack-dev-server/client?http://${host}:${devPort}`,
+            // 'webpack/hot/only-dev-server',
+            require.resolve('react-dev-utils/webpackHotDevClient'),
+            paths.appIndexJs,
         ],
     },
     output: {
-        path: path.resolve(__dirname, 'public'),
-        publicPath: '/',
-        filename: '[name].[hash:16].js',
-        chunkFilename: '[id].[hash:16].js',
+        path: undefined,
+        publicPath: '',
+        pathinfo: true,
+        filename: 'static/js/bundle.js',
+        chunkFilename: 'static/js/[name].chunk.js',
     },
     devServer: {
         inline: true,
         port: devPort,
-        contentBase: path.resolve(__dirname, 'public'),
+        contentBase: paths.appPublic,
         hot: true,
         publicPath: '/',
         historyApiFallback: true,
@@ -48,8 +54,12 @@ module.exports = merge(baseConfig, {
     plugins: [
         new webpack.HotModuleReplacementPlugin(), // HMR을 사용하기 위한 플러그인
         new HtmlWebpackPlugin({
-            filename: 'index.html',
-            title: 'React Design Editor',
+            inject: true,
+            template: paths.appHtml,
+            title: 'N-Duck',
         }),
+        new ModuleNotFoundPlugin(paths.appPath),
+        new WatchMissingNodeModulesPlugin(paths.appNodeModules),
+        new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
     ],
 })

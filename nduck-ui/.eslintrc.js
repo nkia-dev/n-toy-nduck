@@ -10,6 +10,7 @@ module.exports = {
     ],
     parser: 'babel-eslint',
     rules: {
+        'no-unused-vars': 'off',
         'max-len': [1, 120, 2, { ignoreComments: true }],
         indent: [1, 4, { SwitchCase: 1 }],
         'arrow-body-style': [
