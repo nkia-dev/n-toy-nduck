@@ -2,46 +2,39 @@ import React from 'react';
 import { Layout, Breadcrumb, Avatar, Dropdown, Menu, Badge, Divider } from 'antd';
 import { UserOutlined, LogoutOutlined, NotificationOutlined } from '@ant-design/icons';
 
-const Header = () => {
-    const renderOverlayMenu = () => (
-        <Menu>
-            <Menu.Item>
-                <UserOutlined />
-                <span>My Account</span>
-            </Menu.Item>
-            <Menu.Item>
-                <LogoutOutlined />
-                <span>Logout</span>
-            </Menu.Item>
-            <Menu.Item>
-                <LogoutOutlined />
-                <span>Light Theme</span>
-            </Menu.Item>
-            <Menu.Item>
-                <LogoutOutlined />
-                <span>Dark Theme</span>
-            </Menu.Item>
-        </Menu>
-    );
+import { AccountInfo } from '../../containers/authentication';
+import { MainMenu } from '../menu';
+
+
+const Header = ({ routes }) => {
+    const logoStyle = {
+        cursor: 'pointer',
+        float: 'left',
+        lineHeight: '60px',
+        margin: '0 35px 0 16px',
+        width: '60px',
+        height: '60px',
+    };
+    const itemStyle = {
+        display: 'flex',
+        float: 'right',
+        marginRight: '0px',
+        width: 'unset',
+    };
     return (
-        <Layout.Header className="layout-header">
-            <div className="layout-header-title">
-                <Breadcrumb />
+        <React.Fragment>
+            <div className="layout-navbar">
+                <div tabIndex="-1" className="at-layout-navbar-logo" style={logoStyle}>
+                    <div className="at-img-wrap">
+                        <img src="/public/images/n-duck_logo.jpg" alt="" />
+                    </div>
+                </div>
+                <div className="at-layout-navbar-item" style={itemStyle}>
+                    <AccountInfo />
+                </div>
+                 <MainMenu routes={routes} />
             </div>
-            <div className="layout-header-noti">
-                <Badge dot>
-                    <NotificationOutlined />
-                </Badge>
-            </div>
-            <Divider type="vertical" />
-            <div className="layout-header-account">
-                <Dropdown overlay={renderOverlayMenu} trigger={['click']}>
-                    <Avatar className="layout-account-avatar">
-                        {'Admin'.charAt(0)}
-                    </Avatar>
-                </Dropdown>
-            </div>
-        </Layout.Header>
+        </React.Fragment>
     );
 };
 

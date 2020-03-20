@@ -1,14 +1,18 @@
-import React, { useState, useEffect } from 'react';
-import { Menu } from 'antd';
-import { MenuUnfoldOutlined } from '@ant-design/icons';
-
+import React, {useEffect, useState} from 'react';
+import {Menu} from 'antd';
+import {MenuUnfoldOutlined} from '@ant-design/icons';
 import sortBy from 'lodash/sortBy';
-import { withRouter, RouteComponentProps, Redirect, matchPath } from 'react-router-dom';
+import {withRouter} from 'react-router-dom';
 
-import { Sidebar } from '../layout';
-import { IRoute } from '../../routes/routes';
+import i18n from 'i18next';
 
 const MainMenu = (props) => {
+    const menuStyle = {
+        background: 'none',
+        fontWeight: 'bold',
+        color: 'gray',
+        lineHeight: '64px',
+    };
     const { location, routes } = props;
     const { pathname } = location;
     const onePath = pathname.split('/').length === 2;
@@ -50,7 +54,7 @@ const MainMenu = (props) => {
             <>
                 {/*{icon && <Icon type={icon} />}*/}
                 <MenuUnfoldOutlined />
-                <span>{title || key}</span>
+                <span>{i18n.t(menu.title) || key}</span>
             </>
         );
     };
@@ -90,19 +94,20 @@ const MainMenu = (props) => {
         });
     };
     return (
-        <Sidebar onCollapse={handleCollapse} collapsed={collapsed} width={240}>
+        // <Sidebar onCollapse={handleCollapse} collapsed={collapsed} width={240}>
             <Menu
                 // theme="dark"
-                mode="inline"
+                mode="horizontal"
                 defaultSelectedKeys={[`/${onePathname}`]}
                 selectedKeys={[`/${onePathname}`]}
+                style={menuStyle}
                 // defaultSelectedKeys={[isNumber ? pathname : `/${onePathname}`]}
                 // selectedKeys={[isNumber ? pathname : `/${onePathname}`]}
                 // defaultOpenKeys={onePath ? null : [`/${onePathname}`]}
             >
                 {renderMenus(menus)}
             </Menu>
-        </Sidebar>
+        // </Sidebar>
     );
 };
 
