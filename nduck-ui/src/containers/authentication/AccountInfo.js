@@ -1,6 +1,6 @@
-import React from 'react';
-import { Dropdown, Menu, Avatar } from 'antd';
-import { LogoutOutlined, UserOutlined } from '@ant-design/icons';
+import React from 'react'
+import { Dropdown, Menu, Avatar } from 'antd'
+import { LogoutOutlined, UserOutlined } from '@ant-design/icons'
 
 const AccountInfo = () => {
     const menus = () => (
@@ -22,7 +22,7 @@ const AccountInfo = () => {
                 <span>Theme Change</span>
             </Menu.Item>
         </Menu>
-    );
+    )
     return (
         <Dropdown overlay={menus()} trigger={['click']}>
             <a href="#" className="ant-dropdown-link">
@@ -30,6 +30,6 @@ const AccountInfo = () => {
                 {/* <span className="ts-title-username">{currentUser.username}</span> */}
             </a>
         </Dropdown>
-    );
-};
-export default AccountInfo;
+    )
+}
+export default AccountInfo

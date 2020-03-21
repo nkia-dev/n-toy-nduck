@@ -3,6 +3,8 @@ const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const postcssNormalize = require('postcss-normalize')
 const getCSSModuleLocalIdent = require('react-dev-utils/getCSSModuleLocalIdent')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin')
 
 const paths = require('./config/paths')
 
@@ -14,6 +16,14 @@ const lessModuleRegex = /\.module\.less$/
 module.exports = webpackEnv => {
     const isEnvDevelopment = webpackEnv === 'development'
     const isEnvProduction = webpackEnv === 'production'
+
+    const publicPath = isEnvProduction
+        ? paths.servedPath
+        : isEnvDevelopment && '/'
+
+    const publicUrl = isEnvProduction
+        ? publicPath.slice(0, -1)
+        : isEnvDevelopment && ''
 
     const getStyleLoaders = (cssOptions, preProcessor) => {
         const loaders = [
@@ -65,6 +75,7 @@ module.exports = webpackEnv => {
                     options: {
                         sourceMap: true,
                         javascriptEnabled: true,
+                        relativeUrls: false,
                     },
                 },
             )
@@ -75,7 +86,6 @@ module.exports = webpackEnv => {
     return {
         module: {
             rules: [
-                { parser: { requireEnsure: false } },
                 {
                     test: /\.(js|mjs|jsx)$/,
                     enforce: 'pre',
@@ -141,6 +151,7 @@ module.exports = webpackEnv => {
                                 {
                                     importLoaders: 3,
                                     sourceMap: isEnvProduction,
+                                    url: false,
                                 },
                                 'less-loader',
                             ),
@@ -236,5 +247,11 @@ module.exports = webpackEnv => {
             tls: 'empty',
             child_process: 'empty',
         },
+
+        plugins: [
+            new InterpolateHtmlPlugin(HtmlWebpackPlugin, {
+                PUBLIC_URL: publicUrl,
+            }),
+        ],
     }
 }

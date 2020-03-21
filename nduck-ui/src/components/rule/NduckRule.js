@@ -1,13 +1,10 @@
-import React from 'react';
+import React from 'react'
 
-const NduckRule = (props) => {
-    const {} = props;
+const NduckRule = props => {
+    // eslint-disable-next-line no-empty-pattern
+    const {} = props
 
-    return (
-        <>
-            엔덕룰 설명
-        </>
-    );
-};
+    return <>엔덕룰 설명</>
+}
 
-export default NduckRule;
+export default NduckRule

@@ -1,8 +1,8 @@
-import React from 'react';
-import { Result } from 'antd';
+import React from 'react'
+import { Result } from 'antd'
 
-const ErrorPage = (props) => {
-    const { status } = props;
+const ErrorPage = props => {
+    const { status } = props
     console.log(status)
     return (
         <div className="error-container">
@@ -12,7 +12,7 @@ const ErrorPage = (props) => {
                 subTitle="Sorry, the page you visited does not exist."
             />
         </div>
-    );
-};
+    )
+}
 
-export default ErrorPage;
+export default ErrorPage

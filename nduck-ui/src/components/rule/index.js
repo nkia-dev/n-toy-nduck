@@ -1,1 +1,1 @@
-export { default as NduckRule } from './NduckRule';
+export { default as NduckRule } from './NduckRule'

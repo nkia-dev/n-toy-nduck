@@ -1,7 +1,4 @@
-import ErrorPage from './ErrorPage';
-import EmptyPage from './EmptyPage';
+import ErrorPage from './ErrorPage'
+import EmptyPage from './EmptyPage'
 
-export {
-    ErrorPage,
-    EmptyPage,
-};
+export { ErrorPage, EmptyPage }

@@ -25,7 +25,7 @@ const Container = props => {
     scrollShrink()
     return (
         <React.Fragment>
-            {/*<div>스크롤 내리면 없어지는 헤더</div>*/}
+            {/* <div>스크롤 내리면 없어지는 헤더</div> */}
             <Layout.Header>
                 <Header routes={routes} />
             </Layout.Header>

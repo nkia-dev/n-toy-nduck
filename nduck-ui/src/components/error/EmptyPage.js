@@ -1,12 +1,10 @@
-import React from 'react';
-import { Empty } from 'antd';
+import React from 'react'
+import { Empty } from 'antd'
 
-const EmptyPage = () => {
-    return (
-        <div className="empty-container">
-            <Empty />
-        </div>
-    );
-}
+const EmptyPage = () => (
+    <div className="empty-container">
+        <Empty />
+    </div>
+)
 
-export default EmptyPage;
+export default EmptyPage

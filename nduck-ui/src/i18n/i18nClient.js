@@ -1,9 +1,6 @@
-import i18n from 'i18next';
-import LanguageDetector from 'i18next-browser-languagedetector';
-import {
-    translation,
-    translationKo,
-} from '../locales';
+import i18n from 'i18next'
+import LanguageDetector from 'i18next-browser-languagedetector'
+import { translation, translationKo } from '../locales'
 
 /**
  * Client Side Load
@@ -39,6 +36,6 @@ const i18nClient = i18n
                 'locale.constant': translationKo,
             },
         },
-    });
+    })
 
-export default i18nClient;
+export default i18nClient

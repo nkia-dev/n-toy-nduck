@@ -1,8 +1,8 @@
-import React, {lazy } from 'react';
+import React, { lazy } from 'react'
 // const Login = lazy(() => import('../components/login/Login'));
-const Dashboard = lazy(() => import('../components/dashboard/Dashboard'));
-const Explain = lazy(() => import('../components/explain/Explain'));
-const NduckRule = lazy(() => import('../components/rule/NduckRule'));
+const Dashboard = lazy(() => import('../components/dashboard/Dashboard'))
+const Explain = lazy(() => import('../components/explain/Explain'))
+const NduckRule = lazy(() => import('../components/rule/NduckRule'))
 const routes = [
     {
         path: '/Dashboard',
@@ -32,7 +32,6 @@ const routes = [
     //     icon: 'MenuUnfoldOutlined',
     //     title: 'Login',
     // },
+]
 
-];
-
-export default routes;
+export default routes

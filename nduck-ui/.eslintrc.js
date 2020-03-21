@@ -1,7 +1,7 @@
 const path = require('path')
 
 module.exports = {
-    extends: ['react', 'airbnb', 'prettier', 'prettier/react'],
+    extends: ['react-app', 'airbnb', 'prettier', 'prettier/react'],
     plugins: [
         // ...
         'prettier',
@@ -10,6 +10,7 @@ module.exports = {
     ],
     parser: 'babel-eslint',
     rules: {
+        semi: ['error', 'never'],
         'no-unused-vars': 'off',
         'max-len': [1, 120, 2, { ignoreComments: true }],
         indent: [1, 4, { SwitchCase: 1 }],
