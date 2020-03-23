@@ -11,7 +11,7 @@ module.exports = {
     parser: 'babel-eslint',
     rules: {
         semi: ['error', 'never'],
-        'no-unused-vars': 'off',
+        'no-unused-vars': 'warn',
         'max-len': [1, 120, 2, { ignoreComments: true }],
         indent: [1, 4, { SwitchCase: 1 }],
         'arrow-body-style': [
@@ -21,6 +21,7 @@ module.exports = {
         ],
         'react/jsx-indent': [1, 4],
         'linebreak-style': 0,
+        'react/destructuring-assignment': ['warn', 'always'],
         'react/jsx-filename-extension': 0,
         'react/prefer-stateless-function': 0,
         'react/prop-types': 0,
