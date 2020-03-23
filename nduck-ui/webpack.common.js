@@ -27,7 +27,9 @@ module.exports = webpackEnv => {
 
     const getStyleLoaders = (cssOptions, preProcessor) => {
         const loaders = [
+            // inline으로 html에 - development
             isEnvDevelopment && require.resolve('style-loader'),
+            // 하나의 css로 추출 - production
             isEnvProduction && {
                 loader: MiniCssExtractPlugin.loader,
                 options: {},

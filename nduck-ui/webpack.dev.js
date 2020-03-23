@@ -16,7 +16,7 @@ module.exports = merge(baseConfig(mode), {
     devtool: 'cheap-module-source-map',
     entry: {
         bundle: [
-            // 'react-hot-loader/patch',
+            'react-hot-loader/patch',
             // `webpack-dev-server/client?http://${host}:${devPort}`,
             // 'webpack/hot/only-dev-server',
             require.resolve('react-dev-utils/webpackHotDevClient'),

@@ -4,7 +4,7 @@
     "private": true,
     "scripts": {
         "start": "npm install && npm run start:dev",
-        "start:dev": "webpack-dev-server --config webpack.dev.js --inline --open 'Google Chrome'",
+        "start:dev": "webpack-dev-server --config webpack.dev.js --inline",
         "build": "node clean && webpack -p --config webpack.prod.js",
         "test": "echo \"Error: no test specified\" && exit 1",
         "eject": "react-scripts eject",

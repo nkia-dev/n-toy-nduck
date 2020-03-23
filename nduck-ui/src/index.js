@@ -1,7 +1,7 @@
+import { hot } from 'react-hot-loader/root'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import './styles/index.less'
-import { AppContainer } from 'react-hot-loader'
 import { ConfigProvider } from 'antd'
 import koKR from 'antd/lib/locale-provider/ko_KR'
 import enUS from 'antd/lib/locale-provider/en_US'
@@ -24,20 +24,18 @@ const render = Component => {
     const rootElement = document.getElementById('root')
     rootElement.style.height = '100%'
     ReactDOM.render(
-        <AppContainer>
-            <ConfigProvider locale={antResources[i18nClient.language]}>
-                <Component />
-            </ConfigProvider>
-        </AppContainer>,
+        <ConfigProvider locale={antResources[i18nClient.language]}>
+            <Component />
+        </ConfigProvider>,
         rootElement,
     )
 }
 
-render(App)
-if (module.hot) {
-    module.hot.accept('./App', () => {
-        render(App)
-    })
-}
+render(hot(App))
+// if (module.hot) {
+//     module.hot.accept('./App', () => {
+//         render(App)
+//     })
+// }
 
 serviceWorker.unregister()
