@@ -1,21 +1,16 @@
 {
-    "access": {
-    },
-    "account": {
-    },
-    "admin": {
-    },
-    "common": {
-    },
-    "action": {
-    },
+    "access": {},
+    "account": {},
+    "admin": {},
+    "common": {},
+    "action": {},
     "title": {
         "main": {
             "dashboard": "메인",
             "explain": "엔덕이란?",
-            "nrule": "엔덕규칙"
+            "nrule": "엔덕규칙",
+            "blindBoard": "익명게시판"
         },
-        "sub": {
-        }
+        "sub": {}
     }
 }

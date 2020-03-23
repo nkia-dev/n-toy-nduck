@@ -31,7 +31,7 @@ const routes = [
         component: BlindBoard,
         isMenu: true,
         icon: 'MenuUnfoldOutlined',
-        title: 'BlindBoard',
+        title: 'title.main.blindBoard',
     },
     // {
     //     path: '/Login',
