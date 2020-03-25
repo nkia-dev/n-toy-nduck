@@ -4,6 +4,7 @@ const Dashboard = lazy(() => import('../components/dashboard/Dashboard'))
 const BlindBoard = lazy(() => import('../components/blindBoard/BlindBoard'))
 const Explain = lazy(() => import('../components/explain/Explain'))
 const NduckRule = lazy(() => import('../components/rule/NduckRule'))
+const App = lazy(() => import('../components/sample/App'))
 const routes = [
     {
         path: '/Dashboard',
@@ -32,6 +33,13 @@ const routes = [
         isMenu: true,
         icon: 'MenuUnfoldOutlined',
         title: 'title.main.blindBoard',
+    },
+    {
+        path: '/ReduxSample',
+        component: App,
+        isMenu: true,
+        icon: 'MenuUnfoldOutlined',
+        title: 'sample',
     },
     // {
     //     path: '/Login',
