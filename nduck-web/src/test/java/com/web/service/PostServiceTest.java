@@ -71,4 +71,24 @@ public class PostServiceTest {
 		assertThat(post.getTitle()).isEqualTo(postById.getTitle());
 
 	}
+
+	@Test
+	public void 포스트_데이터변경_테스트() {
+		// Given
+		Posts newPost = Posts.builder()
+				.title("수정테스트")
+				.content("토이프로젝트업데이트")
+				.author("GondelNew")
+				.build();
+
+		// When
+		postsService.updatePostById(1L, newPost);
+
+
+		// Then
+		Posts updatedPost = postsService.findOnePostById(1L);
+		assertThat(updatedPost.getTitle()).isEqualTo(newPost.getTitle());
+		assertThat(updatedPost.getContent()).isEqualTo(newPost.getContent());
+		assertThat(updatedPost.getAuthor()).isEqualTo(newPost.getAuthor());
+	}
 }
