@@ -1,22 +1,16 @@
-export const INCREMENT = 'INCREMENT'
-export const DECREMENT = 'DECREMENT'
-export const SET_DIFF = 'SET_DIFF'
+/* 액션 객체를 만드는 액션 생성 함수들 */
 
-export function increment() {
-    return {
-        type: INCREMENT,
-    }
-}
+import * as types from './ActionTypes'
 
-export function decrement() {
-    return {
-        type: DECREMENT,
-    }
-}
+export const increment = () => ({
+    type: types.INCREMENT,
+})
 
-export function setDiff(value) {
-    return {
-        type: SET_DIFF,
-        diff: value,
-    }
-}
+export const decrement = () => ({
+    type: types.DECREMENT,
+})
+
+export const setColor = color => ({
+    type: types.SET_COLOR,
+    color,
+})
